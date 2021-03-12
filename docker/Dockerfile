@@ -16,11 +16,10 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
 ENV PATH="/opt/software/miniconda/bin:${PATH}"
 
 # Install SCTK and dependencies:
-ADD spec_file.txt /opt/software/
+ADD spec_file.yaml /opt/software/
 ADD build_sctk.R /opt/software/
-RUN conda env create --name sctk_env --file=/opt/software/spec_file.txt
-RUN conda init bash
-RUN conda activate sctk_env
+RUN conda env create --name sctk_env --file=/opt/software/spec_file.yaml
+SHELL ["conda", "run", "-n", "sctk_env", "/bin/bash", "-c"]
 RUN Rscript /opt/software/build_sctk.R
 
 # Add the sctk dimensional reduction script
