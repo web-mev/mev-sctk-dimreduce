@@ -1,4 +1,4 @@
-name: sctk
+name: sctk_env
 channels:
   - anaconda
   - conda-forge
@@ -379,4 +379,4 @@ dependencies:
   - xz=5.2.5=h516909a_1
   - zlib=1.2.11=h516909a_1010
   - zstd=1.4.9=ha95c52a_0
-prefix: /home/ddeconti/bin/miniconda3/envs/sctk
+prefix: /opt/software/miniconda/envs/sctk_env
