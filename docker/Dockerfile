@@ -18,7 +18,7 @@ ENV PATH="/opt/software/miniconda/bin:${PATH}"
 # Install SCTK and dependencies:
 ADD spec_file.txt /opt/software/
 ADD build_sctk.R /opt/software/
-RUN conda create --name sctk_env --file /opt/software/spec_file.txt
+RUN conda env create --name sctk_env --file=/opt/software/spec_file.txt
 RUN conda init bash
 RUN conda activate sctk_env
 RUN Rscript /opt/software/build_sctk.R
